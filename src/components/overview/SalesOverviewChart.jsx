@@ -42,10 +42,10 @@ const SalesOverviewChart = () => {
             <YAxis stroke="#9ca3af" />
             <Tooltip
               contentStyle={{
-                backgroundColor: "rgba(31, 41, 55, 0.8)",
-                borderColor: "#4B5563",
+                backgroundColor: "rgba(80, 80, 80, 0.8)",
+                borderColor: "#8b8b8b",
               }}
-              itemStyle={{ color: "#E5E7EB" }}
+              itemStyle={{ color: "#ffffff" }}
             />
             <Line
               type="monotone"
