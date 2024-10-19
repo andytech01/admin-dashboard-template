@@ -36,7 +36,7 @@ const ConnectedAccounts = () => {
               alt="Social img"
               className="size-6 object-cover rounded-full mr-2"
             />
-            <span className="text-gray-300">{account.name}</span>
+            <span className="text-zinc-300">{account.name}</span>
           </div>
           <button
             className={`px-3 py-1 rounded ${

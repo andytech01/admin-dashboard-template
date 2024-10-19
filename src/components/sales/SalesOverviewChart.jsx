@@ -25,13 +25,13 @@ const SalesOverviewChart = () => {
 
   return (
     <motion.div
-      className="bg-zinc-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700 mb-8"
+      className="bg-zinc-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-zinc-700 mb-8"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
     >
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-semibold text-gray-100">Sales Overview</h2>
+        <h2 className="text-xl font-semibold text-zinc-100">Sales Overview</h2>
 
         <select
           className="bg-zinc-700 text-white rounded-md px-3 py-1 focus:outline-none focus:ring-2 

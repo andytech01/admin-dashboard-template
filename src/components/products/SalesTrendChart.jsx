@@ -22,12 +22,12 @@ const salesData = [
 const SalesTrendChart = () => {
   return (
     <motion.div
-      className="bg-zinc-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700"
+      className="bg-zinc-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-zinc-700"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3 }}
     >
-      <h2 className="text-xl font-semibold text-gray-100 mb-4">Sales Trend</h2>
+      <h2 className="text-xl font-semibold text-zinc-100 mb-4">Sales Trend</h2>
       <div style={{ width: "100%", height: 300 }}>
         <ResponsiveContainer>
           <LineChart data={salesData}>

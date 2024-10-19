@@ -22,7 +22,7 @@ const OverviewCards = () => {
         <motion.div
           key={item.name}
           className="bg-zinc-800 bg-opacity-50 backdrop-filter backdrop-blur-lg shadow-lg
-            rounded-xl p-6 border border-gray-700
+            rounded-xl p-6 border border-zinc-700
           "
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -30,8 +30,8 @@ const OverviewCards = () => {
         >
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-sm font-medium text-gray-400">{item.name}</h3>
-              <p className="mt-1 text-xl font-semibold text-gray-100">
+              <h3 className="text-sm font-medium text-zinc-400">{item.name}</h3>
+              <p className="mt-1 text-xl font-semibold text-zinc-100">
                 {item.value}
               </p>
             </div>
@@ -65,7 +65,7 @@ const OverviewCards = () => {
             <span className="ml-1 text-sm font-medium">
               {Math.abs(item.change)}%
             </span>
-            <span className="ml-2 text-sm text-gray-400">vs last period</span>
+            <span className="ml-2 text-sm text-zinc-400">vs last period</span>
           </div>
         </motion.div>
       ))}

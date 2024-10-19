@@ -26,13 +26,13 @@ const RevenueChart = () => {
 
   return (
     <motion.div
-      className="bg-zinc-800 bg-opacity-50 backdrop-filter backdrop-blur-lg shadow-lg rounded-xl p-6 border border-gray-700 mb-8"
+      className="bg-zinc-800 bg-opacity-50 backdrop-filter backdrop-blur-lg shadow-lg rounded-xl p-6 border border-zinc-700 mb-8"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
     >
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-semibold text-gray-100">
+        <h2 className="text-xl font-semibold text-zinc-100">
           Revenue vs Target
         </h2>
         <select
