@@ -24,7 +24,7 @@ const SIDEBAR_ITEMS = [
   { name: "Sales", icon: DollarSign, color: "#10B981", href: "/sales" },
   { name: "Orders", icon: ShoppingCart, color: "#F59E0B", href: "/orders" },
   { name: "Analytics", icon: TrendingUp, color: "#3B82F6", href: "/analytics" },
-  { name: "Settings", icon: Settings, color: "#6EE7B7", href: "/settings" },
+  // { name: "Settings", icon: Settings, color: "#6EE7B7", href: "/settings" },
 ];
 
 const Sidebar = () => {
@@ -47,30 +47,53 @@ const Sidebar = () => {
           <Menu size={24} />
         </motion.button>
 
-        <nav className="mt-8 flex-grow">
-          {SIDEBAR_ITEMS.map((item) => (
-            <Link key={item.href} to={item.href}>
-              <motion.div className="flex items-center p-4 text-sm font-medium rounded-lg hover:bg-zinc-700 transition-colors mb-2">
-                <item.icon
-                  size={20}
-                  style={{ color: item.color, minWidth: "20px" }}
-                />
-                <AnimatePresence>
-                  {isSidebarOpen && (
-                    <motion.span
-                      className="ml-4 whitespace-nowrap"
-                      initial={{ opacity: 0, width: 0 }}
-                      animate={{ opacity: 1, width: "auto" }}
-                      exit={{ opacity: 0, width: 0 }}
-                      transition={{ duration: 0.2, delay: 0.3 }}
-                    >
-                      {item.name}
-                    </motion.span>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            </Link>
-          ))}
+        <nav className="mt-8 mb-8 flex-grow flex flex-col justify-between">
+          <div>
+            {SIDEBAR_ITEMS.map((item) => (
+              <Link key={item.href} to={item.href}>
+                <motion.div className="flex items-center p-4 text-base font-medium rounded-lg hover:bg-zinc-700 transition-colors mb-2">
+                  <item.icon
+                    size={25}
+                    style={{ color: item.color, minWidth: "25px" }}
+                  />
+                  <AnimatePresence>
+                    {isSidebarOpen && (
+                      <motion.span
+                        className="ml-4 whitespace-nowrap"
+                        initial={{ opacity: 0, width: 0 }}
+                        animate={{ opacity: 1, width: "auto" }}
+                        exit={{ opacity: 0, width: 0 }}
+                        transition={{ duration: 0.2, delay: 0.3 }}
+                      >
+                        {item.name}
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+          <Link key={"/settings"} to={"/settings"}>
+            <motion.div className="flex items-center p-4 text-base font-medium rounded-lg hover:bg-zinc-700 transition-colors mb-2">
+              <Settings
+                size={25}
+                style={{ color: "#86c4ff", minWidth: "25px" }}
+              />
+              <AnimatePresence>
+                {isSidebarOpen && (
+                  <motion.span
+                    className="ml-4 whitespace-nowrap"
+                    initial={{ opacity: 0, width: 0 }}
+                    animate={{ opacity: 1, width: "auto" }}
+                    exit={{ opacity: 0, width: 0 }}
+                    transition={{ duration: 0.2, delay: 0.3 }}
+                  >
+                    Settings
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          </Link>
         </nav>
       </div>
     </motion.div>
