@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const SIDEBAR_ITEMS = [
   {
@@ -24,11 +24,11 @@ const SIDEBAR_ITEMS = [
   { name: "Sales", icon: DollarSign, color: "#10B981", href: "/sales" },
   { name: "Orders", icon: ShoppingCart, color: "#F59E0B", href: "/orders" },
   { name: "Analytics", icon: TrendingUp, color: "#3B82F6", href: "/analytics" },
-  // { name: "Settings", icon: Settings, color: "#6EE7B7", href: "/settings" },
 ];
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const location = useLocation();
 
   return (
     <motion.div
@@ -37,12 +37,12 @@ const Sidebar = () => {
       }`}
       animate={{ width: isSidebarOpen ? 256 : 80 }}
     >
-      <div className="h-full bg-zinc-800 bg-opacity-50 backdrop-blur-md p-4 flex flex-col border-r border-zinc-700">
+      <div className="h-full bg-zinc-800 bg-opacity-50 backdrop-blur-md p-3 flex flex-col border-r border-zinc-700">
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="p-2 rounded-full hover:bg-zinc-700 transition-colors max-w-fit"
+          className="p-4 rounded-full hover:bg-zinc-700 transition-colors max-w-fit"
         >
           <Menu size={24} />
         </motion.button>
@@ -51,7 +51,13 @@ const Sidebar = () => {
           <div>
             {SIDEBAR_ITEMS.map((item) => (
               <Link key={item.href} to={item.href}>
-                <motion.div className="flex items-center p-4 text-base font-medium rounded-lg hover:bg-zinc-700 transition-colors mb-2">
+                <motion.div
+                  className={`flex items-center p-4 text-base font-medium rounded-lg transition-colors mb-2 ${
+                    location.pathname === item.href
+                      ? "bg-zinc-600 text-white"
+                      : "hover:bg-zinc-700 hover:text-white text-zinc-400"
+                  }`}
+                >
                   <item.icon
                     size={25}
                     style={{ color: item.color, minWidth: "25px" }}
@@ -74,7 +80,13 @@ const Sidebar = () => {
             ))}
           </div>
           <Link key={"/settings"} to={"/settings"}>
-            <motion.div className="flex items-center p-4 text-base font-medium rounded-lg hover:bg-zinc-700 transition-colors mb-2">
+            <motion.div
+              className={`flex items-center p-4 text-base font-medium rounded-lg transition-colors mb-2 ${
+                location.pathname === "/settings"
+                  ? "bg-zinc-600 text-white"
+                  : "hover:bg-zinc-700 hover:text-white text-zinc-400"
+              }`}
+            >
               <Settings
                 size={25}
                 style={{ color: "#86c4ff", minWidth: "25px" }}
