@@ -1,7 +1,8 @@
 import {
   BarChart2,
   DollarSign,
-  Menu,
+  ChevronsLeft,
+  ChevronsRight,
   Settings,
   ShoppingBag,
   ShoppingCart,
@@ -37,17 +38,57 @@ const Sidebar = () => {
       }`}
       animate={{ width: isSidebarOpen ? 256 : 80 }}
     >
-      <div className="h-full bg-zinc-800 bg-opacity-50 backdrop-blur-md p-3 flex flex-col border-r border-zinc-700">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="p-4 rounded-full hover:bg-zinc-700 transition-colors max-w-fit"
-        >
-          <Menu size={24} />
-        </motion.button>
+      <div className="h-full bg-zinc-800 bg-opacity-50 backdrop-blur-md p-3 pt-6 flex flex-col border-r border-zinc-700">
+        <div className="relative flex items-center justify-between">
+          {/* Logo */}
+          <AnimatePresence mode="wait">
+            {isSidebarOpen && (
+              <motion.div
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{
+                  duration: 0.3,
+                  ease: "easeInOut",
+                  delay: 0.4,
+                }}
+                className="flex items-center pl-2"
+              >
+                <img
+                  src="/logo-white.svg"
+                  alt="Logo"
+                  className="w-10 h-10 mr-3"
+                />
+                <span className="text-white text-lg font-bold">Dashboard</span>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-        <nav className="mt-8 mb-8 flex-grow flex flex-col justify-between">
+          {/* Menu Icon */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            className={`absolute right-0 p-4 rounded-full hover:bg-zinc-700 transition-colors max-w-fit ${
+              isSidebarOpen ? "" : "-top-2"
+            }`}
+          >
+            <motion.div
+              animate={{
+                rotate: isSidebarOpen ? 180 : 0,
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut", delay: 0.1 }}
+            >
+              <ChevronsRight size={24} />
+            </motion.div>
+          </motion.button>
+        </div>
+
+        <nav
+          className={`${
+            isSidebarOpen ? "mt-14" : "mt-20"
+          } mb-8 flex-grow flex flex-col justify-between`}
+        >
           <div>
             {SIDEBAR_ITEMS.map((item) => (
               <Link key={item.href} to={item.href}>
