@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
 
-const StatCard = ({ name, icon: Icon, value, color }) => {
+const StatCard = ({
+  name,
+  icon: Icon,
+  value,
+  prefix = "",
+  suffix = "",
+  color,
+}) => {
   return (
     <motion.div
       className="bg-zinc-800 bg-opacity-50 backdrop-blur-md overflow-hidden shadow-lg rounded-xl border border-zinc-700"
@@ -11,7 +19,11 @@ const StatCard = ({ name, icon: Icon, value, color }) => {
           <Icon size={20} className="mr-2" style={{ color }} />
           {name}
         </span>
-        <p className="mt-1 text-3xl font-semibold text-zinc-100">{value}</p>
+        <p className="mt-1 text-3xl font-semibold text-zinc-100">
+          {prefix}
+          <CountUp end={value} />
+          {suffix}
+        </p>
       </div>
     </motion.div>
   );
