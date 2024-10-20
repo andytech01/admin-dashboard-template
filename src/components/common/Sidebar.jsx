@@ -85,7 +85,7 @@ const Sidebar = () => {
 
         <nav
           className={`${
-            isSidebarOpen ? "mt-14" : "mt-20"
+            isSidebarOpen ? "mt-10" : "mt-20"
           } mb-8 flex-grow flex flex-col justify-between`}
         >
           <div>
