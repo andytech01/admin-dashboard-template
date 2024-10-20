@@ -1,7 +1,6 @@
 import {
   BarChart2,
   DollarSign,
-  ChevronsLeft,
   ChevronsRight,
   Settings,
   ShoppingBag,
